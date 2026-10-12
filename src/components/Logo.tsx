@@ -2,21 +2,21 @@
 export const APP_NAME = 'VibeFlix'
 export const TAGLINE = 'Your mood. Your movie.'
 
+/** A ticket stub with a play-triangle punched out of it. */
 export function LogoMark({ size = 32 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 40 40" aria-hidden="true">
-      <rect width="40" height="40" rx="11" fill="var(--c-card)" stroke="var(--c-border-strong)" />
-      <path d="M8 24c3.500-9 6-9 8.500 0s5 9 8.500 0 4-6 7-6" fill="none" stroke="var(--c-secondary)" strokeWidth="3" strokeLinecap="round" />
-      <path d="M16 12.500v15l12.500-7.500z" fill="var(--c-primary)" />
+      <path d="M3 8h34v8.500a3.500 3.500 0 0 0 0 7V32H3v-8.500a3.500 3.500 0 0 0 0-7z" fill="var(--c-primary)" />
+      <path d="M16 14v12l10.500-6z" fill="var(--c-bg)" />
     </svg>
   )
 }
 
-export function Logo({ size = 32 }: { size?: number }) {
+export function Logo({ size = 30 }: { size?: number }) {
   return (
     <span className="logo">
       <LogoMark size={size} />
-      <span className="logo__word">Vibe<b>Flix</b></span>
+      <span className="logo__word">VIBE<b>FLIX</b></span>
     </span>
   )
 }

@@ -6,10 +6,10 @@ import { Logo } from './Logo'
 
 const ITEMS: { key: string; label: string; icon: IconName; to: string; match: Route['name'][] }[] = [
   { key: 'home', label: 'Home', icon: 'home', to: href.home, match: ['home'] },
-  { key: 'find', label: 'Find', icon: 'sparkle', to: href.find, match: ['find', 'results'] },
+  { key: 'find', label: 'Find', icon: 'ticket', to: href.find, match: ['find', 'results'] },
   { key: 'explore', label: 'Explore', icon: 'film', to: href.explore, match: ['explore'] },
-  { key: 'favorites', label: 'Favorites', icon: 'heart', to: href.favorites, match: ['favorites'] },
-  { key: 'settings', label: 'Settings', icon: 'settings', to: href.settings, match: ['settings'] },
+  { key: 'favorites', label: 'Favorites', icon: 'bookmark', to: href.favorites, match: ['favorites'] },
+  { key: 'settings', label: 'Settings', icon: 'sliders', to: href.settings, match: ['settings'] },
 ]
 
 export function TopBar({ route }: { route: Route }) {

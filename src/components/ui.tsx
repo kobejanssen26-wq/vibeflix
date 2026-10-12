@@ -39,12 +39,12 @@ export function Chip({ selected, onClick, children, disabled }: { selected: bool
   )
 }
 
-export function OptionCard({ selected, onClick, emoji, label, hint }: {
-  selected: boolean; onClick: () => void; emoji: string; label: string; hint?: string
+export function OptionCard({ selected, onClick, icon, label, hint }: {
+  selected: boolean; onClick: () => void; icon: IconName; label: string; hint?: string
 }) {
   return (
     <button type="button" className={cx('option', selected && 'is-selected')} aria-pressed={selected} onClick={onClick}>
-      <span className="option__emoji" aria-hidden="true">{emoji}</span>
+      <span className="option__icon"><Icon name={icon} size={30} /></span>
       <span className="option__text">
         <span className="option__label">{label}</span>
         {hint && <span className="option__hint">{hint}</span>}

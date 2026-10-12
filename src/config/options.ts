@@ -1,18 +1,19 @@
+import type { IconName } from '../components/Icon'
 import type { AgeGroup, Company } from '../types'
 
-export const COMPANY_OPTIONS: { id: Company; label: string; emoji: string; hint: string }[] = [
-  { id: 'solo', label: 'Just me', emoji: '🧍', hint: 'Personal pick' },
-  { id: 'partner', label: 'With my partner', emoji: '💞', hint: 'Date night' },
-  { id: 'friends', label: 'With friends', emoji: '🍿', hint: 'Movie night' },
-  { id: 'family', label: 'With family', emoji: '🏠', hint: 'Something for everyone' },
-  { id: 'group', label: 'With a group', emoji: '🎉', hint: 'Crowd-pleasers' },
+export const COMPANY_OPTIONS: { id: Company; label: string; icon: IconName; hint: string }[] = [
+  { id: 'solo', label: 'Just me', icon: 'who-solo', hint: 'Personal pick' },
+  { id: 'partner', label: 'With my partner', icon: 'who-partner', hint: 'Date night' },
+  { id: 'friends', label: 'With friends', icon: 'who-friends', hint: 'Movie night' },
+  { id: 'family', label: 'With family', icon: 'who-family', hint: 'Something for everyone' },
+  { id: 'group', label: 'With a group', icon: 'who-group', hint: 'Crowd-pleasers' },
 ]
 
-export const AGE_OPTIONS: { id: AgeGroup; label: string; emoji: string; hint: string }[] = [
-  { id: 'children', label: 'Children', emoji: '🧒', hint: 'G and PG only' },
-  { id: 'teens', label: 'Teenagers', emoji: '🧑‍🎤', hint: 'Up to PG-13' },
-  { id: 'adults', label: 'Adults', emoji: '🧑', hint: 'All ratings' },
-  { id: 'mixed', label: 'Mixed ages / family', emoji: '👨‍👩‍👧', hint: 'Up to PG-13, prefers G/PG' },
+export const AGE_OPTIONS: { id: AgeGroup; label: string; icon: IconName; hint: string }[] = [
+  { id: 'children', label: 'Children', icon: 'age-children', hint: 'G and PG only' },
+  { id: 'teens', label: 'Teenagers', icon: 'age-teens', hint: 'Up to PG-13' },
+  { id: 'adults', label: 'Adults', icon: 'age-adults', hint: 'All ratings' },
+  { id: 'mixed', label: 'Mixed ages / family', icon: 'age-mixed', hint: 'Up to PG-13, prefers G/PG' },
 ]
 
 export const GENRE_OPTIONS = [

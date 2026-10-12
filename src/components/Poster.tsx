@@ -17,7 +17,7 @@ export function Poster({ movie, className, eager }: { movie: Pick<Movie, 'title'
       style={{ ['--h' as string]: hue }}>
       <span className="poster__genre">{movie.genres[0] ?? 'Film'}</span>
       <span className="poster__title">{movie.title}</span>
-      {movie.year && <span className="poster__year">{movie.year}</span>}
+      <span className="poster__year">{movie.year ?? ''}</span>
     </div>
   )
 }

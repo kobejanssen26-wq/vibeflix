@@ -16,13 +16,17 @@ export function Message({ icon = 'info', title, children, actions }: { icon?: Ic
   )
 }
 
-/** Cinematic loading state. Only rendered while a request is actually in flight. */
+/** Loading state: a film reel that turns while a request is really in flight. */
 export function CinemaLoader({ text }: { text: string }) {
   return (
     <div className="cinema" role="status" aria-live="polite">
-      <div className="cinema__reel" aria-hidden="true">
-        {Array.from({ length: 6 }, (_, i) => <span key={i} style={{ animationDelay: `${i * 0.15}s` }} />)}
-      </div>
+      <svg className="cinema__reel" width="64" height="64" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10.500" fill="none" stroke="currentColor" strokeWidth="1.500" />
+        {[0, 72, 144, 216, 288].map((a) => (
+          <circle key={a} cx="12" cy="6.200" r="2.300" fill="none" stroke="currentColor" strokeWidth="1.500" transform={`rotate(${a} 12 12)`} />
+        ))}
+        <circle cx="12" cy="12" r="1.500" fill="currentColor" />
+      </svg>
       <p className="cinema__text">{text}</p>
     </div>
   )

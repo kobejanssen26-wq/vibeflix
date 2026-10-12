@@ -57,7 +57,7 @@ export function Find() {
             <h1 id="q2" className="quiz__title">Who are you watching with?</h1>
             <div className="options">
               {COMPANY_OPTIONS.map((o) => (
-                <OptionCard key={o.id} selected={prefs.company === o.id} onClick={() => setPrefs({ company: o.id })} emoji={o.emoji} label={o.label} hint={o.hint} />
+                <OptionCard key={o.id} selected={prefs.company === o.id} onClick={() => setPrefs({ company: o.id })} icon={o.icon} label={o.label} hint={o.hint} />
               ))}
             </div>
           </section>
@@ -65,7 +65,7 @@ export function Find() {
             <h2 id="q3" className="quiz__subtitle">Which age group is watching?</h2>
             <div className="options options--2">
               {AGE_OPTIONS.map((o) => (
-                <OptionCard key={o.id} selected={prefs.ageGroup === o.id} onClick={() => setPrefs({ ageGroup: o.id })} emoji={o.emoji} label={o.label} hint={o.hint} />
+                <OptionCard key={o.id} selected={prefs.ageGroup === o.id} onClick={() => setPrefs({ ageGroup: o.id })} icon={o.icon} label={o.label} hint={o.hint} />
               ))}
             </div>
             <p className="note"><Icon name="info" size={16} /><span>This is a preference only. Official age ratings are always shown, and movies without a known rating are left out for children, teens and mixed groups.</span></p>
@@ -132,7 +132,7 @@ export function Find() {
       <div className="quiz__nav">
         <Button variant="ghost" icon="back" onClick={() => (step === 0 ? goBack(href.home) : setStep(step - 1))}>Back</Button>
         {step === 0 && (prefs.mood || prefs.secondaryMood) && <Button variant="ghost" onClick={resetPrefs}>Clear</Button>}
-        <Button variant="primary" size="lg" disabled={!canNext} onClick={next} icon={last ? 'sparkle' : undefined}>
+        <Button variant="primary" size="lg" disabled={!canNext} onClick={next} icon={last ? 'next' : undefined}>
           {last ? 'Show my movies' : 'Next'}
         </Button>
       </div>

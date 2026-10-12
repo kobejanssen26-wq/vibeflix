@@ -18,10 +18,10 @@ export function Favorites() {
           options={[{ id: 'favorites', label: `Favorites (${Object.keys(favorites).length})` }, { id: 'watched', label: `Watched (${Object.keys(watched).length})` }]} />
       </header>
       {list.length === 0 ? (
-        <Message icon={tab === 'favorites' ? 'heart' : 'eye'}
+        <Message icon={tab === 'favorites' ? 'bookmark' : 'eye'}
           title={tab === 'favorites' ? 'No favorites yet' : 'Nothing marked as watched'}
-          actions={<LinkButton href={href.find} variant="primary" icon="sparkle">Find my movie</LinkButton>}>
-          {tab === 'favorites' ? 'Tap the heart on any movie to save it here.' : 'Mark movies as watched and VibeFlix can skip them in future recommendations.'}
+          actions={<LinkButton href={href.find} variant="primary" icon="next">Find my movie</LinkButton>}>
+          {tab === 'favorites' ? 'Tap the bookmark on any movie to save it here.' : 'Mark movies as watched and VibeFlix can skip them in future recommendations.'}
         </Message>
       ) : (
         <div className="grid">

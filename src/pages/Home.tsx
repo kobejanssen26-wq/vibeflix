@@ -1,7 +1,6 @@
 import { MOODS } from '../config/moods'
 import { DEMO_MOVIES } from '../data/demoMovies'
 import { Icon } from '../components/Icon'
-import { LogoMark, TAGLINE } from '../components/Logo'
 import { LinkButton } from '../components/ui'
 import { href } from '../hooks/useRoute'
 import { useStore } from '../hooks/useStore'
@@ -17,20 +16,23 @@ export function Home() {
   return (
     <div className="home">
       <section className="hero">
-        <div className="hero__bg" aria-hidden="true" />
         <div className="hero__content">
-          <LogoMark size={56} />
-          <p className="eyebrow">Mood-based movie picks</p>
-          <h1 className="hero__title">{TAGLINE}</h1>
-          <p className="hero__lead">Tell us your vibe. We’ll find your next movie – no more scrolling for an hour.</p>
+          <p className="eyebrow">Movie picks by mood</p>
+          <h1 className="hero__title"><span>Your mood.</span> <span>Your movie.</span></h1>
+          <p className="hero__lead">Pick a mood, say who is watching, and get a short list of films that fit. No more scrolling for an hour.</p>
           <div className="hero__actions">
-            <LinkButton href={href.find} variant="primary" size="lg" icon="sparkle">Find my movie</LinkButton>
-            <LinkButton href={href.explore} variant="secondary" size="lg" icon="film">Explore movies</LinkButton>
+            <LinkButton href={href.find} variant="primary" size="lg" icon="next">Find my movie</LinkButton>
+            <LinkButton href={href.explore} variant="secondary" size="lg">Explore movies</LinkButton>
           </div>
-          <ul className="hero__moods" aria-label="Available moods">
-            {MOODS.map((m) => <li key={m.id} style={{ ['--mood' as string]: m.color }}><span aria-hidden="true">{m.emoji}</span> {m.label}</li>)}
-          </ul>
         </div>
+        <ul className="strip" aria-label="Available moods">
+          {MOODS.map((m) => (
+            <li key={m.id} className="strip__frame" style={{ ['--mood' as string]: m.color }}>
+              <Icon name={m.icon} size={34} />
+              <span>{m.label}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="section" aria-labelledby="how">
@@ -38,7 +40,7 @@ export function Home() {
         <ol className="steps">
           {STEPS.map((s) => (
             <li key={s.n} className="steps__item">
-              <span className="steps__n">{s.n}</span>
+              <span className="steps__n">Step {s.n}</span>
               <h3>{s.title}</h3>
               <p>{s.text}</p>
             </li>

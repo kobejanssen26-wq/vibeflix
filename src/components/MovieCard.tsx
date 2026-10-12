@@ -13,7 +13,7 @@ export function FavoriteButton({ movie, label = false }: { movie: Movie; label?:
     <button type="button" className={`iconbtn ${on ? 'is-on' : ''} ${label ? 'iconbtn--label' : ''}`} aria-pressed={on}
       aria-label={on ? `Remove ${movie.title} from favorites` : `Add ${movie.title} to favorites`}
       onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFavorite(movie) }}>
-      <Icon name="heart" size={20} filled={on} />
+      <Icon name="bookmark" size={20} filled={on} />
       {label && <span>{on ? 'Saved' : 'Favorite'}</span>}
     </button>
   )

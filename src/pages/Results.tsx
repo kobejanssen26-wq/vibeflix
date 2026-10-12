@@ -62,7 +62,7 @@ export function Results() {
   const newSearch = () => navigate(href.find)
 
   if (!isReadyToSearch(prefs) && search.status === 'idle') {
-    return <Message icon="sparkle" title="Let’s find your movie first" actions={<LinkButton href={href.find} variant="primary">Answer a few questions</LinkButton>}>
+    return <Message icon="ticket" title="Let’s find your movie first" actions={<LinkButton href={href.find} variant="primary">Answer a few questions</LinkButton>}>
       Tell us your mood and who’s watching to get recommendations.
     </Message>
   }
@@ -87,7 +87,7 @@ export function Results() {
     <div className="results">
       <header className="results__head">
         <div>
-          <h1 className="page-title">{mood ? `${mood.emoji} ${mood.label}` : 'Your'} picks{prefs.secondaryMood ? ` with a touch of ${MOOD_BY_ID[prefs.secondaryMood].label.toLowerCase()}` : ''}</h1>
+          <h1 className="page-title">{mood && <Icon name={mood.icon} size={32} className="title-icon" />}{mood ? mood.label : 'Your'} picks{prefs.secondaryMood ? ` with a touch of ${MOOD_BY_ID[prefs.secondaryMood].label.toLowerCase()}` : ''}</h1>
           <p className="muted">
             {filtered.length} match{filtered.length === 1 ? '' : 'es'} from {search.considered} movies checked
             {mode === 'demo' ? ' · demo catalogue' : ''}

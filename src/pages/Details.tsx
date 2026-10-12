@@ -83,7 +83,7 @@ export function Details({ id }: { id: number }) {
             {movie.certification
               ? <Badge tone="accent" title="Official US rating">Rated {movie.certification}</Badge>
               : <Badge title="No official rating in the data source">Rating unavailable</Badge>}
-            {movie.voteAverage !== undefined && <Badge><Icon name="star" size={13} filled /> {movie.voteAverage.toFixed(1)}</Badge>}
+            {movie.voteAverage !== undefined && <Badge>{movie.voteAverage.toFixed(1)}/10</Badge>}
             <Badge>{languageName(movie.originalLanguage)}</Badge>
           </div>
           <p className="details__genres">{movie.genres.join(' · ')}</p>
@@ -91,7 +91,7 @@ export function Details({ id }: { id: number }) {
           <div className="actions">
             <FavoriteButton movie={movie} label />
             <WatchedButton rec={{ movie }} />
-            <LinkButton href={href.find} icon="sparkle">Find another movie</LinkButton>
+            <LinkButton href={href.find} icon="next">Find another movie</LinkButton>
           </div>
         </div>
       </div>
@@ -105,7 +105,7 @@ export function Details({ id }: { id: number }) {
             ) : (
               <>
                 <MatchScore score={rec.rec.score} />
-                <p className="best__why"><Icon name="sparkle" size={16} /> {rec.rec.summary}</p>
+                <p className="best__why"><span className="label">Why this one</span>{rec.rec.summary}</p>
               </>
             )}
             <ReasonList rec={rec.rec} />
@@ -124,7 +124,7 @@ export function Details({ id }: { id: number }) {
         {moods.length > 0 && (
           <p className="moods-inline">
             <span className="muted">Moods it tends to suit (inferred from genres and synopsis):</span>{' '}
-            {moods.map((m) => <Badge key={m.mood} tone="purple">{MOOD_BY_ID[m.mood].emoji} {MOOD_BY_ID[m.mood].label}</Badge>)}
+            {moods.map((m) => <Badge key={m.mood} tone="purple"><Icon name={MOOD_BY_ID[m.mood].icon} size={13} /> {MOOD_BY_ID[m.mood].label}</Badge>)}
           </p>
         )}
         <p className="disclaimer">
